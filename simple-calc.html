@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        line-height: 1.5;
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .ds-flex {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container {
+        background-color: #D0E8F2;
+        height: 100vh;
+    }
+
+    p {
+        color: #797A7E;
+        font-size: 2.2rem;
+    }
+
+    .box-container {
+        /* background-color: #52606D; */
+        width: 750px;
+        height: 300px;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* border-radius: 25px; */
+    }
+
+    .box {
+        width: 130px;
+        height: 130px;
+        background-color: #FCF8EC;
+        margin: 10px;
+        border-radius: 25px;
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
+    }
+
+    .icon {
+        box-shadow: none;
+        background-color: #D0E8F2;
+        color: #79A3B1;
+    }
+
+
+    .btn {
+        color: #D8D3CD;
+        transition: all 0.5s ease;
+        cursor:pointer;
+    }
+
+    .btn:hover {
+        transform: scale(1.5);
+        color: #797A7E;
+    }
+    
+
+    .number-input {
+        color: #797A7E;
+        min-width: 50px;
+        text-align: center;
+        font-size: 2.2rem;
+        border: none;
+        background-color: #FCF8EC;
+    }
+
+    .number-input:focus {
+        outline: none;
+    }
+
+    /* remove arrows/spinners */
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
+    }
+    </style>
+
+</head>
+<body >
+
+    <div class="container ds-flex">
+        <div class="box-container ds-flex">
+            <div class="box ds-flex">
+                <input class="number-input" type="number" autocomplete="off" id = "first-number" onfocus="this.value=''" value="0">
+            </div>
+            <div class="box icon ds-flex">
+                <i class="fas fa-plus fa-5x" id="operator"></i>
+            </div>
+            <div class="box ds-flex">
+                <input class="number-input" type="number" autocomplete="off" id = "second-number" onfocus="this.value=''" value="0">
+            </div>
+            <div class="box icon ds-flex">
+                <i class="fas fa-equals fa-5x" ></i>
+            </div>
+            <div class="box ds-flex">
+                <p class="result">0</p>
+            </div>
+            <div class="box ds-flex" >
+                <i class="fas fa-plus fa-3x btn" ></i>
+            </div>
+            <div class="box ds-flex">
+                <i class="fas fa-minus fa-3x btn" ></i>
+            </div>
+            <div class="box ds-flex">
+                <i class="fas fa-divide fa-3x btn" ></i>
+            </div>
+            <div class="box ds-flex">
+                <i class="fas fa-times fa-3x btn" ></i>
+            </div>
+            <div class="box ds-flex">
+                <i class="fas fa-equals fa-3x btn" id="deneme" ></i>
+            </div>
+        </div>
+    </div>
+
+    <p>
+        BİL209.1 - WEB TABANLI PROGRAMLAMAYA GİRİŞ /
+        200601046 - Sedat Korkmaz
+    </p>
+
+    <script>
+        const firstNumber = document.querySelector("#first-number");
+        const secondNumber = document.querySelector("#second-number");
+        const container = document.querySelector(".container");
+        const operator = document.querySelector("#operator");
+        const equal = document.querySelector(".result");
+
+        container.addEventListener("click",takeUserClick);
+
+
+        function takeUserClick(e) {
+            if (e.target.className == "fas fa-plus fa-3x btn") {
+                changeOperator(e.target,"fas fa-plus fa-5x");
+            }
+            else if (e.target.className == "fas fa-minus fa-3x btn") {
+                changeOperator(e.target,"fas fa-minus fa-5x");
+            }
+            else if (e.target.className == "fas fa-divide fa-3x btn") {
+                changeOperator(e.target,"fas fa-divide fa-5x");
+            }
+            else if (e.target.className == "fas fa-times fa-3x btn") {
+                changeOperator(e.target,"fas fa-times fa-5x");
+            }
+            else if (e.target.className == "fas fa-equals fa-3x btn") {
+                calculateResult();
+            }
+
+        }
+
+        function changeOperator(e,newClassName) {
+            operator.className = newClassName;
+        }
+
+        function calculateResult() {
+            let firstValue = parseInt(firstNumber.value.trim(),10);
+            let secondValue = parseInt(secondNumber.value.trim(),10);
+            let result = 0;
+            if (operator.className == "fas fa-plus fa-5x") {
+                result = firstValue + secondValue;
+            }
+            else if (operator.className == "fas fa-minus fa-5x") {
+                result = firstValue - secondValue;
+            }
+            else if (operator.className == "fas fa-divide fa-5x") {
+                result = firstValue / secondValue;
+            }
+            else if (operator.className == "fas fa-times fa-5x") {
+                result = firstValue * secondValue;
+            }
+            equal.innerHTML=result;
+        }
+        
+
+    </script>
+</body>
+</html>
