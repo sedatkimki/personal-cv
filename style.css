@@ -90,6 +90,8 @@ body {
     position: sticky;
     top: 10%;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -webkit-box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     text-align: center;
     padding: 7% 5%;
     background-color: #fff;
@@ -142,6 +144,8 @@ body {
 
 .content-box {
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -webkit-box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 2.5rem;
     background-color: #fff;
     margin: 20px;
@@ -167,6 +171,8 @@ li.dot {
 
 .project-box {
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    -webkit-box-shadow:rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
+    -moz-box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
     margin: 7% 10%;
     /* height: 500px; */
     background-color: #fff;
@@ -181,6 +187,8 @@ li.dot {
     
 }
 .project-box:hover {
+    -webkit-box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     transform: scale(1.05);
     cursor: pointer;
@@ -204,7 +212,8 @@ li.dot {
 
 .text-input:focus {
     outline: none;
-    -webkit-appearance: none;
+    -webkit-box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
+    -moz-box-shadow:rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
     box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
 }
 
@@ -222,8 +231,9 @@ li.dot {
 }
 
 .text-box{
+    -webkit-box-shadow:rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    -moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     border-radius: 25px;
-    -webkit-appearance: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 1.2rem;
 } 
