@@ -204,6 +204,7 @@ li.dot {
 
 .text-input:focus {
     outline: none;
+    -webkit-appearance: none;
     box-shadow: rgba(100, 100, 111, 0.4) 0px 7px 29px 0px;
 }
 
@@ -222,6 +223,7 @@ li.dot {
 
 .text-box{
     border-radius: 25px;
+    -webkit-appearance: none;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 1.2rem;
 } 
